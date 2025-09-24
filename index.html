@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Input Billet Planter</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 16px; }
+    .card { padding:16px; border:1px solid #ddd; border-radius:12px; max-width:720px; margin:0 auto; }
+    label { display:block; margin-top:12px; }
+    input, select, button { width:100%; padding:10px; margin-top:6px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .ok { color: #0a7f00; }
+    .err{ color: #b00020; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Form Input Billet Planter</h2>
+    <div id="status"></div>
+
+    <label>Planter</label>
+    <div class="row">
+      <label><input type="radio" name="planter_id" value="A" checked> Planter A</label>
+      <label><input type="radio" name="planter_id" value="B"> Planter B</label>
+    </div>
+
+    <label>Tanggal<span style="color:#b00020">*</span>
+      <input type="date" id="tanggal" required>
+    </label>
+
+    <div class="row">
+      <label>Start time<span style="color:#b00020">*</span>
+        <input type="time" id="start_time" required step="1" value="08:00:00">
+      </label>
+      <label>End time<span style="color:#b00020">*</span>
+        <input type="time" id="end_time" required step="1" value="09:00:00">
+      </label>
+    </div>
+
+    <label>Kategori<span style="color:#b00020">*</span>
+      <select id="kategori">
+        <option>pengisian_bahan</option>
+        <option>menunggu_bibit</option>
+        <option>transport_planter</option>
+        <option>mengisi_bibit</option>
+        <option>breakdown</option>
+        <option>menunggu_mekanik</option>
+        <option>menunggu_bibit_datang</option>
+      </select>
+    </label>
+
+    <label>Lokasi <input type="text" id="lokasi" placeholder="opsional"></label>
+    <label>Catatan <input type="text" id="catatan" placeholder="opsional"></label>
+    <label>Nama operator<span style="color:#b00020">*</span>
+      <input type="text" id="input_by" required>
+    </label>
+
+    <button id="submitBtn">Simpan</button>
+  </div>
+
+  <script src="form.js"></script>
+  <script> if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js'); </script>
+</body>
+</html>
